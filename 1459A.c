@@ -1,50 +1,34 @@
 #include <stdio.h>
 
-int main(){
-    int it,Az=0,Ver=0,Di,Taz[1000],Tver[1000], cou=0;
-    long long Nver,Naz;
+int main() {
+    int it, Di, Az=0, Ver=0;
+    char Nver[1001], Naz[1001];
 
     scanf("%d", &it);
 
-    while(it>0){
-     scanf("%d %lld %lld", &Di, &Nver, &Naz);
+    while (it>0){
+        scanf("%d %s %s", &Di, Nver, Naz);
 
-     cou=Di-1;
-     while(cou>=0){
-        Tver[cou]=Nver%10;
-        cou--;
-        Nver/=10;
-     }
-     cou=Di-1;
-
-     while(cou>=0){
-        Taz[cou]=Naz%10;
-        cou--;
-        Naz/=10;
-     }
-     cou=0;
-
-     for(int i=Di-1; i>=0;i--){
-        if(Taz[i]>Tver[i]){
-            Az++;
-        }else if(Tver[i]>Taz[i]){
-            Ver++;
+        for (int i=0; i<Di; i++){
+            if(Naz[i]>Nver[i]){
+                Az++;
+            } else if(Nver[i]>Naz[i]){
+                Ver++;
+            }
         }
-     }
-     //09281
 
-     if(Az>Ver){
-        printf("BLUE\n");
-     }else if(Ver>Az){
-        printf("RED\n");
-     }else if(Ver==Az){
-        printf("EQUAL\n");
-     }
+        if(Az>Ver){
+            printf("BLUE\n");
+        } else if(Ver>Az) {
+            printf("RED\n");
+        } else{
+            printf("EQUAL\n");
+        }
 
-     Az=0;
-     Ver=0;
-     it--;
+        it--;
+        Az=0;
+        Ver=0;
     }
-}
 
+    return 0;
 }
