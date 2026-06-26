@@ -1,9 +1,9 @@
 #include <stdio.h>
 
-long long mod_pow(long long a,long long b){
+long long mod_pow(long long b){
     long long res=1;
     int f=998244353;
-    a%=f;
+    long long a=8;
 
     while(b>0){
         if(b&1){
@@ -29,12 +29,11 @@ int main(){
 
     c=((c%f)*(((c+1)%f))%f);
 
-    long long inv8=mod_pow(8,f-2);
+    long long inv8=mod_pow(f-2);
 
     d=((a%f)*(b%f))%f;
     d=(d*(c%f))%f;
     d=(d*inv8)%f;
 
     printf("%lld\n", d);
-}
 }
