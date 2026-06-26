@@ -5,7 +5,7 @@ int main(){
 
     scanf("%d %d %d %d", &a,&b,&c,&d);
 
-    for(int i=0;i<4;i++){
+    for(int g=0;g<4;g++){
     if(d<a){
         t=d;
         d=a;
